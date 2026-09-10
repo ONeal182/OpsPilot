@@ -55,13 +55,19 @@ docker compose exec web npm run build        # type-check + vite build
 ## Structure (`src/`)
 
 - `main.ts` — app bootstrap (Pinia + Router).
-- `App.vue`, `views/` — route-level components. `views/LandingView.vue` (`/`) is
-  a thin composition surface; `views/LoginView.vue` (`/login`) is a stub.
+- `App.vue`, `views/` — route-level components.
+  - `views/LandingView.vue` — route `/`, a thin composition surface: header +
+    the `components/landing/**` sections. Static, no store, no API.
+  - `views/LoginView.vue` — route `/login`, a placeholder stub («Вход» /
+    «Скоро»). No auth, forms, or guards yet.
+  - `views/HomeView.vue` and its spec were **removed** in the landing-page work
+    (it was the backend-health demo for `/`). `stores/health.ts` is kept for a
+    future dashboard but is no longer mounted anywhere.
 - `components/` — reusable presentational components. `components/ui/**` is the
   vendored shadcn-vue kit; `components/landing/**` holds the landing-page
   sections (`HeroSection`, `FeaturesSection`, `HowItWorksSection`, `SiteFooter`).
 - `stores/` — Pinia stores (data + API access).
-- `router/` — route table.
+- `router/` — route table (`/` → `landing`, `/login` → `login`).
 - `lib/` — framework-agnostic helpers (`http.ts`, …).
 - `assets/` — CSS and static assets.
 

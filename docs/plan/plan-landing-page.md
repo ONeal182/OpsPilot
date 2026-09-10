@@ -71,12 +71,12 @@ document.documentElement.clientWidth`; вкладка Network пуста пос�
 **Затрагивает:** frontend (docs)
 
 **Задачи:**
-- [ ] `apps/web/CLAUDE.md`: в разделе Structure описать `views/LandingView.vue`
+- [x] `apps/web/CLAUDE.md`: в разделе Structure описать `views/LandingView.vue`
       (маршрут `/`), `views/LoginView.vue` (маршрут `/login`), судьбу
       `HomeView.vue`.
-- [ ] `docs/STATUS.md`: пункт Web — лендинг на `/`, заглушка `/login`; обновить
+- [x] `docs/STATUS.md`: пункт Web — лендинг на `/`, заглушка `/login`; обновить
       счётчик тестов Vitest под фактическое число.
-- [ ] `apps/web/README.md`: при необходимости упомянуть маршруты `/` и `/login`.
+- [x] `apps/web/README.md`: при необходимости упомянуть маршруты `/` и `/login`.
 
 **Когда готова:** `git grep -n "HomeView" apps/web docs` не возвращает
 устаревших упоминаний; счётчик тестов в `docs/STATUS.md` совпадает с выводом

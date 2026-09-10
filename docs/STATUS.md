@@ -1,6 +1,8 @@
 # OpsPilot — Status Board
 
-Last updated: phase G (smoke tests, clean-rebuild verification, docs finalization).
+Last updated: landing-page feature (phases 1–3) — `/` landing view, `/login`
+stub, docs synced. Baseline below is phase G (smoke tests, clean-rebuild
+verification, docs finalization).
 Everything under DONE was **re-verified on a freshly rebuilt stack** — `docker
 compose down -v` then a clone-equivalent bring-up (`cp .env.example .env` +
 `docker compose up -d --build` + the five documented setup commands).
