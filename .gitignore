@@ -1,0 +1,45 @@
+# Environment
+.env
+.env.*.local
+/apps/api/.env
+/apps/web/.env
+
+# Dependencies
+/apps/api/vendor/
+/apps/api/node_modules/
+/apps/web/node_modules/
+/services/agent/node_modules/
+/services/agent/dist/
+
+# Laravel storage & caches
+/apps/api/storage/*.key
+/apps/api/storage/logs/*
+/apps/api/storage/framework/cache/*
+/apps/api/storage/framework/sessions/*
+/apps/api/storage/framework/views/*
+/apps/api/bootstrap/cache/*.php
+/apps/api/public/hot
+/apps/api/public/build
+/apps/api/public/storage
+
+# Build output
+/apps/web/dist/
+coverage/
+
+# Test caches
+.phpunit.result.cache
+.phpunit.cache
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Never ignore the example env
+!.env.example

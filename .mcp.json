@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "laravel-boost": {
+      "command": "docker",
+      "args": ["compose", "exec", "-T", "php-cli", "php", "artisan", "boost:mcp"]
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}
