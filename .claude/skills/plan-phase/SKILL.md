@@ -7,7 +7,7 @@ description: Разбивай PRD на фазы реализации. Испол
 
 Прочитай PRD из файла: $ARGUMENTS
 
-Сохрани результат в файл `plan/plan-<slug>.md`, где `<slug>` — имя файла PRD без пути, расширения и префикса `prd-` (например PRD `docs/prd-meeting-file-upload.md` -> план `plan/plan-meeting-file-upload.md`). Slug уже на английском и в kebab-case — не меняй его, только замени префикс `prd-` на `plan-`.
+Сохрани результат в файл `docs/plan/plan-<slug>.md`, где `<slug>` — имя файла PRD без пути, расширения и префикса `prd-` (например PRD `docs/prd-meeting-file-upload.md` -> план `plan/plan-meeting-file-upload.md`). Slug уже на английском и в kebab-case — не меняй его, только замени префикс `prd-` на `plan-`.
 
 Если нет папки `plan` — создай.
 

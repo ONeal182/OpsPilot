@@ -117,7 +117,10 @@ Node. Exchange `opspilot.events`; queue / routing key
 
 - `.claude/skills/` — `workflow`, `opspilot-backend` (Laravel/API),
   `opspilot-vue` (Vue/web), `opspilot-messaging` (RabbitMQ topology),
-  `opspilot-agent-runtime` (Node worker & drivers), `tdd`.
+  `opspilot-agent-runtime` (Node worker & drivers), `tdd`; planning chain
+  `prd` → `plan-phase` → `issues` → `run-milestones` (drive open GitHub
+  milestones: feature branch per milestone, TDD per issue, component gates,
+  close issues + open PR).
 - `.claude/agents/` — `opspilot-architect` (design/contract/topology analysis,
   read-only) before a big change; `opspilot-reviewer` (findings only) after any
   significant change. The **main agent** decides what to fix and does final

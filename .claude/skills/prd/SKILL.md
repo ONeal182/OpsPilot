@@ -8,7 +8,7 @@ description: Создаю PRD-документацию для фичи по ст
 Создай PRD (Product Requirements Document) для следующей фичи:
 $ARGUMENTS
 
-Сохрани результат в файл `docs/prd-<slug>.md`, где `<slug>` — название фичи, переведённое на английский, в kebab-case, без пунктуации (например `docs/prd-meeting-file-upload.md`).
+Сохрани результат в файл `docs/prd/prd-<slug>.md`, где `<slug>` — название фичи, переведённое на английский, в kebab-case, без пунктуации (например `docs/prd-meeting-file-upload.md`).
 
 Если нет папки `docs` — создай.
 
