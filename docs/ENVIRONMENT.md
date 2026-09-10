@@ -122,7 +122,7 @@ it installs into the `web-node-modules` named volume on first boot (mirrors
 | create-vue         | 3.23.0  | scaffolder (`npm create vue@latest`)                    |
 | Vue                | 3.5.42  | `<script setup>` SFCs                                    |
 | Vite               | 8.2.2   | dev server + build; dev proxy for `/api`                 |
-| Vue Router         | 5.3.1   | one route: `/` → `HomeView`                              |
+| Vue Router         | 5.3.1   | `/` → `LandingView`, `/login` → `LoginView` (stub)       |
 | Pinia              | 4.0.3   | `stores/health.ts` (backend health check)               |
 | axios              | 1.20.0  | `src/lib/http.ts`, baseURL `/api`                        |
 | Vitest             | 4.1.11  | `@vue/test-utils` 2.5.0; `npm run test` = `vitest run`  |
