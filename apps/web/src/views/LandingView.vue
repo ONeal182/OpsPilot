@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import HeroSection from '@/components/landing/HeroSection.vue'
 import FeaturesSection from '@/components/landing/FeaturesSection.vue'
 import HowItWorksSection from '@/components/landing/HowItWorksSection.vue'
+import SiteFooter from '@/components/landing/SiteFooter.vue'
 </script>
 
 <template>
@@ -23,6 +24,6 @@ import HowItWorksSection from '@/components/landing/HowItWorksSection.vue'
       <HowItWorksSection />
     </main>
 
-    <footer class="border-t px-6 py-8"></footer>
+    <SiteFooter />
   </div>
 </template>

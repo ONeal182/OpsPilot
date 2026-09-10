@@ -51,11 +51,9 @@ describe('LandingView', () => {
   it('has a second «Войти в личный кабинет» link to /login in the hero', async () => {
     const wrapper = await mountLanding()
     const hero = wrapper.find('[data-section="hero"]')
-    const heroLoginLink = hero
-      .findAllComponents(RouterLink)
-      .find((link) => link.props('to') === '/login')
-    expect(heroLoginLink).toBeDefined()
-    expect(heroLoginLink!.text()).toContain('Войти в личный кабинет')
+    const heroLoginLink = hero.find('a[href="/login"]')
+    expect(heroLoginLink.exists()).toBe(true)
+    expect(heroLoginLink.text()).toContain('Войти в личный кабинет')
   })
 
   it('renders at least 4 feature cards in the features section', async () => {
