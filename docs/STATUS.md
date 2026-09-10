@@ -114,9 +114,14 @@ _(none)_
 - [ ] **ClaudeAgentDriver real path** — by design. Needs `AGENT_DRIVER=claude` +
       a real `ANTHROPIC_API_KEY` in the root `.env`. The fake driver covers all
       automated testing.
-- [ ] **Playwright MCP browser smoke** — Chromium is installed
-      (`~/.cache/ms-playwright`, ~659 MB) but no browser-driven smoke has been run
-      through the MCP yet.
+- [ ] **Playwright MCP browser smoke** — bundled Chromium (rev 1243, matches
+      `@playwright/mcp` `playwright-core`) is at `~/.cache/ms-playwright`.
+      `.mcp.json` pins `--browser chromium --headless` (the default `chrome`
+      channel is not installed on the WSL host). The landing page has been
+      verified headless via `playwright-core` and over an stdio MCP session
+      (`/` 200, hero/features/how-it-works/footer present, «Войти» → `/login`,
+      no `/api` calls, 0 console errors); a run through the `mcp__playwright__*`
+      tools still needs one interactive pass.
 - [ ] **`docs/plans/01-ticket-ingestion.md`** — the first real feature plan is
       written but not executed (`/workflow docs/plans/01-ticket-ingestion.md`).
 - [ ] **Queue-worker service** — no `queue:work` container yet; `QUEUE_CONNECTION`
