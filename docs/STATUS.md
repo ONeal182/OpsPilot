@@ -39,12 +39,16 @@ compose down -v` then a clone-equivalent bring-up (`cp .env.example .env` +
 ### Web (`apps/web`) — Vue 3.5 / Vite 8 / TS
 
 - [x] **Build / test / lint, all exit 0** — `npm run build` (vue-tsc + vite build);
-      `npm run test` (vitest) → 12 passed / 4 files; `npm run lint`
+      `npm run test` (vitest) → 18 passed / 4 files; `npm run lint`
       (oxlint + eslint).
-- [x] **Dev server** — `curl http://localhost:5173/` → 200; `/` renders
-      `LandingView` (phase-1 skeleton: sticky header, «Войти» → `/login`),
+- [x] **Dev server** — `curl http://localhost:5173/` → 200; `/` renders the
+      `LandingView` landing page (sticky header, hero with «Войти в личный
+      кабинет» → `/login`, ≥4 feature cards, 4-step how-it-works, footer
+      «© 2026 OpsPilot»); no horizontal scroll at 375px; no `/api` calls.
       `/login` → 200 renders the `LoginView` stub; `/api` proxied to nginx.
       `HomeView` removed; `useHealthStore` kept but no longer rendered on `/`.
+      Sections vendored under `src/components/landing/` (`HeroSection`,
+      `FeaturesSection`, `HowItWorksSection`, `SiteFooter`).
 - [x] **Styling: Tailwind CSS v4** (`@tailwindcss/vite`, no config file) — theme
       tokens + `@theme` in `src/assets/main.css`; production CSS bundle emitted
       (~19 kB / 4.4 kB gzip).
