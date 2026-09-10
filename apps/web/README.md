@@ -52,3 +52,17 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+## Styling & UI
+
+- **Tailwind CSS v4** via `@tailwindcss/vite` — no `tailwind.config.js`. Theme
+  tokens and the `neutral` light/dark palette live in `src/assets/main.css`.
+- **[shadcn-vue](https://www.shadcn-vue.com/)** (`new-york` style, `neutral`
+  base). Components are vendored under `src/components/ui/` and edited in place.
+
+```sh
+# add another component (run in the web container)
+npx shadcn-vue@latest add <name>
+```
+
+See `docs/DECISIONS.md` D41 and `apps/web/CLAUDE.md` for the full rules.

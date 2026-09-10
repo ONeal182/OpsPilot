@@ -37,6 +37,17 @@ docker compose exec web npm run build        # type-check + vite build
   port. Keep API calls out of components — put them in stores or `src/lib/`.
 - **Lint/format: ESLint + oxlint + Prettier.** Match `.prettierrc.json` /
   `eslint.config.ts`; don't hand-format against them.
+- **Styling: Tailwind CSS v4** via `@tailwindcss/vite` (no `tailwind.config.js`).
+  Theme tokens + `@theme` live in `src/assets/main.css`; `base.css` is the
+  leftover create-vue scaffold. Prefer utility classes; keep component `<style>`
+  minimal.
+- **UI kit: shadcn-vue** (`new-york` style, `neutral` base, `components.json`).
+  Components are **vendored** under `src/components/ui/<name>/` — edit them in
+  place, they are not a dependency. Add more with
+  `docker compose exec web npx shadcn-vue@latest add <name>` (needs network;
+  chown new files to 1000:1000 afterwards — the container runs as root).
+  `src/components/ui/**` is exempt from `vue/multi-word-component-names`.
+  Icons: **`@lucide/vue`**. Class merge helper: `cn()` in `src/lib/utils.ts`.
 - **Tests: Vitest** with `@vue/test-utils`, colocated in `__tests__/` next to
   the unit under test. Mock HTTP (mock `src/lib/http.ts` or use an axios
   adapter) — tests never hit a real backend.

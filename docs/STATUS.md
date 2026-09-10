@@ -38,11 +38,18 @@ compose down -v` then a clone-equivalent bring-up (`cp .env.example .env` +
 
 ### Web (`apps/web`) — Vue 3.5 / Vite 8 / TS
 
-- [x] **Build / test / lint, all exit 0** — `npm run build` (vue-tsc + vite build,
-      ~130 ms); `npm run test` (vitest) → 5 passed / 1 file; `npm run lint`
+- [x] **Build / test / lint, all exit 0** — `npm run build` (vue-tsc + vite build);
+      `npm run test` (vitest) → 9 passed / 2 files; `npm run lint`
       (oxlint + eslint).
 - [x] **Dev server** — `curl http://localhost:5173/` → 200; start page renders the
       backend health indicator; `/api` proxied to nginx.
+- [x] **Styling: Tailwind CSS v4** (`@tailwindcss/vite`, no config file) — theme
+      tokens + `@theme` in `src/assets/main.css`; production CSS bundle emitted
+      (~19 kB / 4.4 kB gzip).
+- [x] **UI kit: shadcn-vue** (`new-york` / `neutral`, `components.json`) —
+      `reka-ui` + `class-variance-authority` + `clsx` + `tailwind-merge`, icons
+      `@lucide/vue`, `cn()` in `src/lib/utils.ts`. `Button` vendored under
+      `src/components/ui/button/` with a Vitest spec. See DECISIONS D41.
 
 ### Agent Runtime (`services/agent`) — Node + TS
 

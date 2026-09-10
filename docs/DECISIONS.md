@@ -763,3 +763,41 @@ fastcgi_pass $upstream_php;
 **Rationale:** nginx now survives `php-fpm` restarts/recreations on its own
 (verified: recreate `php-fpm` alone, health stays 200). Removes a setup footgun.
 The `valid=10s` TTL is fine for a dev stack.
+
+## D41 — Web UI: Tailwind CSS v4 + shadcn-vue (`new-york` / `neutral`)
+
+**Context:** `apps/web` shipped with the create-vue scaffold CSS only. Building
+the ticket / proposal UI needs a utility CSS layer and an accessible component
+kit. Root `CLAUDE.md` mandates Composition API + TS strict; components must stay
+editable in-repo, not hidden behind a dependency.
+
+**Decision:**
+
+- **Tailwind CSS v4** through the `@tailwindcss/vite` plugin — **no
+  `tailwind.config.js`**. `src/assets/main.css` holds `@import "tailwindcss"`,
+  `tw-animate-css`, the `@theme inline` token map, and the light/`.dark`
+  `neutral` palette. The create-vue `base.css` stays for now (imported after
+  Tailwind; `HomeView.vue` still reads its `--color-*` vars).
+- **shadcn-vue** (`components.json`: style `new-york`, base color `neutral`,
+  `cssVariables`, `iconLibrary` `lucide`). Runtime deps: `reka-ui`,
+  `class-variance-authority`, `clsx`, `tailwind-merge`. `cn()` in
+  `src/lib/utils.ts`.
+- Components are **vendored** under `src/components/ui/<name>/` and edited in
+  place. Add with `docker compose exec web npx shadcn-vue@latest add <name>`.
+  `src/components/ui/**` is exempt from `vue/multi-word-component-names` in
+  `eslint.config.ts`; Prettier rewrites generated files to the repo style.
+- Icons: **`@lucide/vue`** (current shadcn-vue package; `lucide-vue-next`
+  resolves to a deprecated `1.0.0` tombstone — do not use it).
+- Path aliases: **`paths` only, no `baseUrl`** in `tsconfig*.json` — TS 6
+  (`typescript ~6.0.0`) errors `TS5101` on `baseUrl`. `@` still resolves via
+  Vite `resolve.alias`.
+
+**Consequences / gotchas:**
+
+- The `web` container runs as **root**; files the shadcn-vue CLI writes are
+  `0:0` — `chown -R 1000:1000` them so host git / editor / hooks can touch
+  them.
+- `vitest.config.ts` merges `vite.config.ts`, so the `tailwindcss()` plugin also
+  loads under Vitest (harmless).
+- Gates stay green: `npm run lint` + `type-check` + `test` (9 / 2 files) +
+  `build`.
