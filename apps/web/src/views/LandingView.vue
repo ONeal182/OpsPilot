@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { Button } from '@/components/ui/button'
+import HeroSection from '@/components/landing/HeroSection.vue'
 </script>
 
 <template>
@@ -15,7 +16,7 @@ import { Button } from '@/components/ui/button'
     </header>
 
     <main>
-      <section data-section="hero" class="px-6 py-16"></section>
+      <HeroSection />
       <section data-section="features" class="px-6 py-16"></section>
       <section data-section="how-it-works" class="px-6 py-16"></section>
     </main>
