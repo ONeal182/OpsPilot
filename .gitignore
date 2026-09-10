@@ -41,5 +41,8 @@ npm-debug.log*
 !.vscode/extensions.json
 *.swp
 
+# Playwright MCP session snapshots (written to project root)
+.playwright-mcp/
+
 # Never ignore the example env
 !.env.example
