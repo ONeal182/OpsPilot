@@ -776,8 +776,10 @@ editable in-repo, not hidden behind a dependency.
 - **Tailwind CSS v4** through the `@tailwindcss/vite` plugin — **no
   `tailwind.config.js`**. `src/assets/main.css` holds `@import "tailwindcss"`,
   `tw-animate-css`, the `@theme inline` token map, and the light/`.dark`
-  `neutral` palette. The create-vue `base.css` stays for now (imported after
-  Tailwind; `HomeView.vue` still reads its `--color-*` vars).
+  `neutral` palette. The create-vue `base.css` stays for now, imported after
+  Tailwind. (Update, landing-page phase 3: `HomeView.vue` — the only consumer of
+  `base.css`'s `--color-*` vars — was removed, so `base.css` is now unused; left
+  in place, safe to delete later.)
 - **shadcn-vue** (`components.json`: style `new-york`, base color `neutral`,
   `cssVariables`, `iconLibrary` `lucide`). Runtime deps: `reka-ui`,
   `class-variance-authority`, `clsx`, `tailwind-merge`. `cn()` in

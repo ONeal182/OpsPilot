@@ -53,6 +53,19 @@ npm run test:unit
 npm run lint
 ```
 
+## Routes
+
+Route table: `src/router/index.ts`.
+
+- `/` → `views/LandingView.vue` — public landing page (sticky header, hero,
+  features, how-it-works, footer). Static: no API calls, no store. Section
+  components live in `src/components/landing/`.
+- `/login` → `views/LoginView.vue` — placeholder stub («Вход» / «Скоро»). No
+  real auth, forms, or route guards yet.
+
+The old `views/HomeView.vue` (backend-health demo) and its spec were removed
+when `/` became the landing page.
+
 ## Styling & UI
 
 - **Tailwind CSS v4** via `@tailwindcss/vite` — no `tailwind.config.js`. Theme
