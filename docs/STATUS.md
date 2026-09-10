@@ -39,10 +39,12 @@ compose down -v` then a clone-equivalent bring-up (`cp .env.example .env` +
 ### Web (`apps/web`) — Vue 3.5 / Vite 8 / TS
 
 - [x] **Build / test / lint, all exit 0** — `npm run build` (vue-tsc + vite build);
-      `npm run test` (vitest) → 9 passed / 2 files; `npm run lint`
+      `npm run test` (vitest) → 12 passed / 4 files; `npm run lint`
       (oxlint + eslint).
-- [x] **Dev server** — `curl http://localhost:5173/` → 200; start page renders the
-      backend health indicator; `/api` proxied to nginx.
+- [x] **Dev server** — `curl http://localhost:5173/` → 200; `/` renders
+      `LandingView` (phase-1 skeleton: sticky header, «Войти» → `/login`),
+      `/login` → 200 renders the `LoginView` stub; `/api` proxied to nginx.
+      `HomeView` removed; `useHealthStore` kept but no longer rendered on `/`.
 - [x] **Styling: Tailwind CSS v4** (`@tailwindcss/vite`, no config file) — theme
       tokens + `@theme` in `src/assets/main.css`; production CSS bundle emitted
       (~19 kB / 4.4 kB gzip).
